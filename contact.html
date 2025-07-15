@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+        /* navigation bar*/
+       nav {
+      background-color: #333;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      background-color: #4CAF50; /* Button color */
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  </style>
+    </head>
+    <body>
+        <header>
+            <h2>Hi, Let's get in touch!</h2>
+            <p>Web Developer | Designer | Programmer</p>
+            <nav>
+              <a href="home.html">Home</a>  <a href="about.html">About</a> <a href="service.html">Services</a> <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+        <section>
+          <h1>Contact details</h1>
+              <h5>Phone number:</h5> <p>0839954258</p> 
+              <h5>Email Address:</h5> <p>flyjoeddykatleho@gmail.com</p>
+              <h5>Personal Address:</h5>
+                        <p>
+                           22256 Miletus street<br>
+                           Jerusalem park, Thabong<br>
+                           Welkom<br>
+                           9463
+                        </p>
+
+        </section>
+        <div class="contact-container">
+          <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+            <div class="contact-left-title">
+              <h2>Get in touch</h2>
+              <hr>
+            </div>
+             <input type="hidden" name="access_key" value="3ab5afd3-b42b-465a-aaf1-56f71c61d567">
+            <input type="text" text name="name" placeholder="Your Name" class="contact-inputs" required>
+             <input type="email" text name="email" placeholder="Your Email" class="contact-inputs" required>
+             <input type="subject" text name="subject" placeholder="Subject" class="contact-inputs" required>
+            <textarea name="message" placeholder="Your Message" placeholder="Your Message" class="contact-inputs" required></textarea>
+            <button type="submit">submit</button>
+          </form>
+        </div>
+      
+
+        <footer>
+                  <p>&copy; 2025 Portfolio. All Rights Reserved. Designed by Katleho Makhoali</p>
+        </footer>
+   </body>
+</html>

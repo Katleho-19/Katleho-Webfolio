@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+
+   <style>
+  .read-more-content {
+      display: none;
+    }
+
+    #read-more-toggle {
+      display: none;
+    }
+
+    #read-more-toggle:checked ~ .read-more-content {
+      display: inline;
+    }
+
+    #read-more-toggle:checked ~ label .read-more {
+      display: none;
+    }
+
+    #read-more-toggle:checked ~ label .read-less {
+      display: inline;
+    }
+
+    .read-more, .read-less {
+      color: blue;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+
+    .read-less {
+      display: none;
+    }
+    /* navigation bar*/
+       nav {
+      background-color: #333;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      background-color: #4CAF50; /* Button color */
+      padding: 10px 20px;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+      font-weight: bold;
+    }
+
+    nav ul li a:hover {
+      background-color: #45a049; /* Darker green on hover */
+    }
+  </style>
+  </style>
+    </head>
+    <body>
+        <header>
+            <h2>Hi, This is what I offer</h2>
+            <p>Web Developer | Designer | Programmer</p>
+            <nav>
+            <a href="home.html">Home</a>  <a href="about.html">About</a> <a href="service.html">Services</a> <a href="contact.html">Contact</a>
+            </nav>
+        </header>
+
+        <section id="skills">
+<div class="read-more-wrap">
+  <p>
+         <h2>Internet Cafe Services</h2>
+    <ul>
+      <li><strong>Printing & Scanning</strong>	- Black & white or color printing, document scanning, and copying</li>
+      <li><strong>Technical Support</strong>	- On-site help with basic computer issues</li>
+      <li><strong>Technical Assistance</strong> - Quick help with emails, uploads, forms, etc</li>
+    </ul>
+
+    <h2> Web Design & Development</h2>
+    <ul>
+      <li>Hosting Custom Website Design (responsive, mobile-friendly)</li>
+      <li> CMS Setup and Customization</li>
+      <li>Frontend Development (HTML/CSS)</li>
+    </ul>
+       <h2> Content Creation</h2>
+    <ul>
+      <li>Blog Writing and Articles</li>
+      <li> SEO Content Strategy</li>
+      <li>Copywriting(ads, product descriptions, websites)</li>
+    </ul>
+    <input type="checkbox" id="read-more-toggle" />
+    <span class="read-more-content">
+       <h2>Photography</h2>
+                        <ul>
+                          <li>Portrait Photography</li>
+                          <li>Event Coverage (Weddings, Parties, Corporate)</li>
+                          <li>Product Photography</li>
+                          <li>Photo Retouching & Editing</li>
+                        </ul>
+
+        <h2>Videography</h2>
+             <ul>
+                <li>Video Filming & Editing</li>
+                <li>YouTube Video Production</li>
+                <li>Event Highlights</li>
+                <li>Promo Videos for Brands</li>
+              </ul>
+        <h2>Graphic & Visual Design</h2>
+            <ul>
+                <li>Logo and Branding Design</li>
+                <li>UI/UX Design for Apps and Websites</li>
+                <li>Illustrations and Digital Art</li>
+                <li>Marketing Collateral (flyers, brochures, social media graphics)</li>
+            </ul>
+    </span>
+    <label for="read-more-toggle">
+      <span class="read-more">Read More</span>
+      <span class="read-less">Read Less</span>
+    </label>
+  </div>
+  </p>
+</div>
+        <section>
+          <!--Pricing table-->
+          <h2>Pricing of internet cafe offered Services</h2>
+
+<table border="1" cellspacing="0" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>PC Access</td>
+      <td>High-speed internet and PC rental (per hour)</td>
+      <td>R35.80 / hour</td>
+    </tr>
+    <tr>
+      <td>Printing (B&W)</td>
+      <td>Black and white document printing (per page)</td>
+      <td>R2.50</td>
+    </tr>
+    <tr>
+      <td>Printing (Color)</td>
+      <td>Color printing for documents and images (per page)</td>
+      <td>R5.00</td>
+    </tr>
+    <tr>
+      <td>Scanning</td>
+      <td>Scan to email or USB (per document)</td>
+      <td>R8.96</td>
+    </tr>
+    <tr>
+      <td>Form Assistance</td>
+      <td>Help filling online forms (applications, government forms)</td>
+      <td>R17.92 / form</td>
+    </tr>
+  </tbody>
+</table>
+        </section>
+       <section>
+                    <!--Pricing table-->
+          <h2>Pricing of Web design and development offered Services</h2>
+
+<table border="1" cellspacing="0" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Service</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Frontend development</td>
+      <td> The visual and interactive elements of a website complexity of animations and website responsiveness using html/css</td>
+      <td>R900.00 - R2 700.00</td>
+    </tr>
+    <tr>
+      <td>Freelancing/side hustles service</td>
+      <td>Basic set-up hosting a website using a CMS(e.g joomla..)</td>
+      <td>R650.00 - R1000.00</td>
+    </tr>
+    <tr>
+      <td>Portfolio websites</td>
+      <td>Website about yourself up to 3 pages</td>
+      <td>R300 - R500</td>
+    </tr>
+    <tr>
+      <td>Ongoing website maintainance</td>
+      <td>Maintainance for when your content changes overtime like Monthly updates, backups, minor changes</td>
+      <td>R350 - R800/ month</td>
+    </tr>
+  </tbody>
+</table>
+        </section>
+
+
+        <footer>
+                  <p>&copy; 2025 Portfolio. All Rights Reserved. Designed by Katleho Makhoali</p>
+        </footer>
+   </body>
+</html>
