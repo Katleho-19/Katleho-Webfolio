@@ -3,7 +3,10 @@
   margin: 0;
   padding: 0;
 }
-
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 body {
   font-family: Arial, sans-serif;
   background: #aac3f8;
@@ -12,7 +15,6 @@ body {
   padding: 0;
 }
 
-/* HEADER */
 header {
   background: pink;
   color: black;
@@ -71,13 +73,14 @@ footer {
 
 /* CONTACT FORM STYLES */
 .contact-container {
-  min-height: 100vh;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  justify-content: space-evenly;
   gap: 2rem;
   padding: 2rem;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .contact-left {
@@ -85,7 +88,8 @@ footer {
   flex-direction: column;
   align-items: flex-start;
   gap: 20px;
-  flex: 1 1 400px;
+  max-width:100%
+  flex: 1 1 300px;
 }
 
 .contact-left-title h2 {
@@ -174,23 +178,19 @@ img {
   display: block;
 }
 
-/* MEDIA QUERIES - RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-  nav ul li {
-    display: block;
-    margin: 10px 0;
-  }
-
   .contact-container {
     flex-direction: column;
     align-items: center;
   }
 
-  .contact-left,
-  .contact-left textarea,
-  .contact-inputs {
+  .contact-left {
     width: 100%;
     max-width: 100%;
+  }
+
+  .contact-inputs {
+    width: 100%;
   }
 }
 
