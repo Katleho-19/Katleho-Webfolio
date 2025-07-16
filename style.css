@@ -9,6 +9,7 @@ body {
 header {
   background: pink;
   color: black;
+  width:1000%
   padding: 2rem;
   text-align: center;
 }
@@ -152,6 +153,16 @@ border: 2px solid #ff994f;
 @media (max-width: 768px) {
   /* Mobile/tablet styles */
    .nav-menu {
+    width:100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+  @media (min-width: 769px) {
+  /* Mobile/tablet styles */
+   .nav-menu {
+    width:100%;
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
