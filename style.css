@@ -248,6 +248,9 @@ footer {
   .contact-left-title h2 {
     font-size: 2rem;
   }
+  .table-responsive table {
+  min-width: 100%;
+}
 }
 .table-responsive {
   overflow-x: auto;
