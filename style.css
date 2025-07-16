@@ -4,16 +4,9 @@ body {
   padding: 0;
   background: #aac3f8;
   color: #333;
-
-  width:1200%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px;
 }
 
 header {
-  width:1000px;
   background: pink;
   color: black;
   margin:0 auto;
@@ -147,17 +140,6 @@ border: 2px solid #ff994f;
   background-color: #005fcc;
 }
 
-/* Default desktop styles here */
-
-@media (max-width: 600px) {
-  /* Mobile/tablet styles */
-   .nav-menu {
-    width:100%;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 10px;
-  }
   .nav-menu li a {
     width: 100%;                /* Full width buttons */
     display: block;
