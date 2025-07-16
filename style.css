@@ -7,9 +7,11 @@ body {
 }
 
 header {
+  width:1000px;
   background: pink;
   color: black;
-  width:100%;
+  border: 4px solid blue;
+  margin:0 auto;
   padding: 2rem;
   text-align: center;
 }
@@ -141,16 +143,8 @@ border: 2px solid #ff994f;
 }
 
 /* Default desktop styles here */
-/* Desktop layout */
-.nav-menu {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  padding: 0;
-  margin: 0;
-}
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   /* Mobile/tablet styles */
    .nav-menu {
     width:100%;
@@ -159,8 +153,23 @@ border: 2px solid #ff994f;
     gap: 10px;
     padding: 10px;
   }
-  @media (min-width: 769px) {
-  /* Mobile/tablet styles */
+@media (min-width: 601px) {
+   .nav-menu {
+    width:100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+  @media (min-width: 768px) {
+   .nav-menu {
+    width:100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+    @media (min-width: 992px) {
    .nav-menu {
     width:100%;
     flex-direction: column;
