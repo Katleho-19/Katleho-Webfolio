@@ -140,6 +140,14 @@ border: 2px solid #ff994f;
 }
 
 /* Default desktop styles here */
+/* Desktop layout */
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+}
 
 @media (max-width: 768px) {
   /* Mobile/tablet styles */
