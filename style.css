@@ -274,4 +274,48 @@ footer {
 .table-responsive th {
   background-color: #f4f4f4;
 }
+/* Base container for your projects section */
+#projects {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
 
+/* Style for the project card container */
+.project-card {
+    background-color: #ffffff;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Visual anchor for your featured team project */
+.featured-project {
+    border-left: 5px solid #2ea44f; /* Green highlight bar on the side */
+    background-color: #f6f8fa; /* Slight background tint */
+}
+
+/* Typography styles */
+.project-card h3 {
+    margin-top: 0;
+    color: #24292e;
+}
+
+.project-card p {
+    color: #586069;
+    line-height: 1.5;
+}
+
+/* Link styling */
+.project-links a {
+    color: #0366d6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+}
