@@ -319,3 +319,15 @@ footer {
 .project-links a:hover {
     text-decoration: underline;
 }
+
+#interests {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.project-links a {
+    text-decoration: none;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.project-links a:hover {
+    text-decoration: underline;
+}
