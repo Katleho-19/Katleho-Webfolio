@@ -1,76 +1,844 @@
+<!--Katleho Makhoali-->
 <!DOCTYPE html>
-<html>
-    <head>
+<html lang="en">
+<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-    </head>
-    <body>
-        <header>
-            <h1>Hi, I'm Katleho Makhoali </h1>
-            <h2>Welcome to my personal portfolio website.</h2>
-            <p>Web Developer | Designer | Programmer</p>
-              <!-- Navigation Bar -->
-  <nav>
-    <ul class="nav_menu">
-        <li><a href="index.html">Home</a></li> 
-         <li> <a href="about.html">About</a></li>
-         <li> <a href="service.html">Service</a></li> 
-         <li><a href="contact.html">Contact</a></li>
+  <title>Katleho Makhoali — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    </ul>
-  </nav>
-           </header>
-        <section id="about">
-          <h2>About Me</h2>
-          <img src="katt.jpg" alt="My Image" width="400" height="300" title="simple picture">= 
-          <p>
-            To shortly introduce myself, my name is Katleho Makhoali, a passionate and curious young developer with an interest in both front-end and back-end technologies. 
-            I enjoy creating responsive and visually appealing websites using HTML and CSS, and I have a growing interest in software and web development.
-            I love solving problems with code and always look for ways to make things better — both in design and performance. I am thrilled about the prospect to participate and serve the community
-            with my technical skills I'd appreatiate our collaboration together in growing your business I also see this as an opportunity for myself to learn as developer.  
-          </p>
-          <a href="about.html">find out more</a>
-        </section>
+    :root {
+      --bg: #0f0f13;
+      --surface: #1a1a22;
+      --surface2: #22222e;
+      --accent: #7c6af7;
+      --accent2: #f76a8a;
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --border: #2e2e3e;
+      --green: #4caf7d;
+      --radius: 12px;
+    }
 
-        <section id="skills">
-               <h1>Services I Provide:</h1>
-                          <h2>Internet Cafe Services</h2>
-    <ul>
-      <li><strong>Printing & Scanning</strong>	- Black & white or color printing, document scanning, and copying</li>
-      <li><strong>Technical Support</strong>	- On-site help with basic computer issues</li>
-      <li><strong>Technical Assistance</strong> - Quick help with emails, uploads, forms, etc</li>
-    </ul>
+    html { scroll-behavior: smooth; }
 
-    <h2> Web Design & Development</h2>
-    <ul>
-      <li>Hosting Custom Website Design (responsive, mobile-friendly)</li>
-      <li> CMS Setup and Customization</li>
-      <li>Frontend Development (HTML/CSS)</li>
-    </ul>
-                        <a href="service.html">find out more</a>
-        </section>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
 
-        <section id="contact">
-                 <h2>Contact Information</h2>
-                 <p>Interested in working together or just want to say hi? I'm always open to new opportunities and collaborations!</p>
-                 
-                 <h3>Way in which you can contact me</h3>
-                      <h5>Link to My Social Media platforms</h5>
-                        <a href="https://github.com/Katleho-19" target="_blank">GitHub</a><br>
-                        <a href="https://web.facebook.com/Joeddy_Be_Humble.php?id=100080760249972"  target="_blank">Facebook</a><br>
-                        <a href="https://www.instagram.com/katlehofly_19/?next=%2F&hl=en" target="_blank">Instagram</a><br>
-                      
-                      <h5>Location</h5>
-                        <p>Based in Free state, Welkom, I'm open for local projects .<br>
-                           Also open to remote work worldwide.
-                        </p>
-                        <a href="contact.html">find out more</a>
-        </section>
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(15,15,19,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+      overflow: visible;
+    }
 
-        <footer>
-                  <p>&copy; 2025 Portfolio. All Rights Reserved. Designed by Katleho Makhoali</p>
-        </footer>
-   </body>
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--accent);
+      letter-spacing: -0.5px;
+      flex-shrink: 0;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 0.1rem;
+      flex-wrap: nowrap;
+      align-items: center;
+    }
+
+    .nav-links a {
+      display: block;
+      padding: 6px 12px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      background: var(--surface2);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      flex-shrink: 0;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* SECTIONS  */
+    section {
+      min-height: 100vh;
+      padding: 100px 2rem 60px;
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    h1.hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    h1.hero-name span { color: var(--accent); }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover { background: #6a59e0; transform: translateY(-1px); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    .hero-social {
+      margin-top: 2.5rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .social-link {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+    .social-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* SECTION HEADINGS */
+    h2.section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .title-line {
+      width: 48px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px;
+      margin-bottom: 2rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .read-more-content { display: none; }
+    #read-more-toggle { display: none; }
+    #read-more-toggle:checked ~ .read-more-content { display: inline; }
+    #read-more-toggle:checked ~ label .rm-show { display: none; }
+    #read-more-toggle:checked ~ label .rm-hide { display: inline; }
+    .rm-hide { display: none; }
+    .toggle-label { color: var(--accent); cursor: pointer; font-size: 0.85rem; font-weight: 600; }
+
+    /* info table */
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+    }
+    .info-table th, .info-table td {
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+    .info-table th { background: var(--surface2); color: var(--muted); font-weight: 600; }
+    .info-table td { color: var(--text); }
+
+    /* skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .skill-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+    }
+
+    .skill-group h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-group ul { list-style: none; }
+    .skill-group ul li {
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 3px 0;
+    }
+    .skill-group ul li::before { content: "→ "; color: var(--accent2); }
+
+    .skill-group p { color: var(--muted); font-size: 0.9rem; }
+
+    /* PROJECT CARDS */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .card:hover { border-color: var(--accent); }
+
+    .card.featured { border-left: 4px solid var(--green); }
+
+    .card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+    .card .tech {
+      display: inline-block;
+      background: var(--surface2);
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin: 0.5rem 0;
+    }
+
+    .card-links { margin-top: 0.75rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+    .card-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .card-links a:hover { text-decoration: underline; }
+
+    /* SERVICES */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: var(--accent2); }
+
+    .service-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-card ul { list-style: none; }
+    .service-card ul li {
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 2px 0;
+    }
+    .service-card ul li::before { content: "· "; color: var(--accent2); }
+
+    /* extra services toggle */
+    #svc-toggle { display: none; }
+    .svc-more { display: none; }
+    #svc-toggle:checked ~ .svc-more { display: grid; }
+    .svc-toggle-label {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: var(--accent);
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    #svc-toggle:checked ~ .svc-toggle-label .svc-show { display: none; }
+    #svc-toggle:checked ~ .svc-toggle-label .svc-hide { display: inline; }
+    .svc-hide { display: none; }
+
+    /* pricing tables */
+    h3.pricing-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .table-wrap { overflow-x: auto; border-radius: var(--radius); border: 1px solid var(--border); }
+
+    .price-table {
+      width: 100%;
+      min-width: 520px;
+      border-collapse: collapse;
+      font-size: 0.875rem;
+    }
+
+    .price-table th {
+      background: var(--surface2);
+      color: var(--muted);
+      font-weight: 600;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .price-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .price-table tr:last-child td { border-bottom: none; }
+    .price-table tr:nth-child(even) td { background: var(--surface); }
+
+    .price-tag { color: var(--green); font-weight: 600; }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .contact-info h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    .contact-info p, .contact-info a {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-decoration: none;
+      display: block;
+      line-height: 1.6;
+    }
+    .contact-info a:hover { color: var(--accent); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 0.85rem; }
+
+    .form-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--accent); }
+
+    .contact-form textarea { height: 130px; resize: vertical; }
+
+    .contact-form button {
+      padding: 13px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .contact-form button:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /*  MOBILE  */
+    @media (max-width: 760px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 60px; left: 0; right: 0;
+        background: rgba(15,15,19,0.98);
+        border-bottom: 1px solid var(--border);
+        padding: 0.75rem 1rem;
+        gap: 0.2rem;
+        z-index: 99;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 10px 14px; font-size: 1rem; }
+      .hamburger { display: flex; }
+      section { padding: 90px 1.25rem 50px; }
+      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-img { max-width: 300px; }
+    }
+  </style>
+</head>
+<body>
+
+<!--  NAV  -->
+<nav>
+  <a href="#home" class="nav-logo">KM.</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- 
+     HOME
+ -->
+<section id="home">
+  <p class="section-label">Portfolio</p>
+  <h1 class="hero-name">Hi, I'm <span>Katleho</span><br>Makhoali</h1>
+  <p class="hero-tagline">Web Developer · Designer · Programmer — turning ideas into responsive websites and real-world apps.</p>
+  <div class="hero-cta">
+    <a href="#about" class="btn btn-primary">About me</a>
+    <a href="#contact" class="btn btn-outline">Get in touch</a>
+  </div>
+  <div class="hero-social">
+    <a href="https://github.com/Katleho-19" target="_blank" class="social-link">GitHub</a>
+    <a href="https://web.facebook.com/Joeddy_Be_Humble.php?id=100080760249972" target="_blank" class="social-link">Facebook</a>
+    <a href="https://www.instagram.com/katlehofly_19/" target="_blank" class="social-link">Instagram</a>
+    <a href="https://open.spotify.com/album/3YJRK9lepNwIzGUiPbogWr?si=80ci2QLSRuaADnzrChQVuA" target="_blank" class="social-link">Spotify</a>
+  </div>
+</section>
+
+<!--
+     ABOUT
+-->
+<section id="about">
+  <p class="section-label">Who I Am</p>
+  <h2 class="section-title">About Me</h2>
+  <div class="title-line"></div>
+
+  <div class="about-grid">
+    <img src="katt.jpg" alt="Katleho Makhoali" class="about-img">
+    <div class="about-text">
+      <p>I'm an IT student at the Central University of Technology in Welkom, Free State. I run a small internet café at home and enjoy turning ideas into responsive websites.</p>
+      <p>I've worked with C# and SQL to build data-driven applications, and I'm currently exploring Dart and Flutter to expand into mobile app development.</p>
+      <input type="checkbox" id="read-more-toggle">
+      <span class="read-more-content">
+        <p>I love learning new technologies and building projects that solve real problems. Outside of programming I enjoy gaming, music and photography, and love to collaborate with others.</p>
+        <p>As a motivated student and C# developer I continuously seek opportunities to learn and adapt to new technologies fluent in HTML5, CSS, SQL, Dart and C#, I bring a creative mind and a passion for innovative problem solving.</p>
+      </span>
+      <label for="read-more-toggle" class="toggle-label">
+        <span class="rm-show">Read More </span>
+        <span class="rm-hide">Read Less </span>
+      </label>
+    </div>
+  </div>
+
+  <!-- Personal info table -->
+  <table class="info-table">
+    <thead>
+      <tr><th>Label</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Full Name</td><td>Katleho Innocent Makhoali</td></tr>
+      <tr><td>Gender</td><td>Male</td></tr>
+      <tr><td>Date of Birth</td><td>19 Jul 2005</td></tr>
+      <tr><td>Nationality</td><td>South African</td></tr>
+      <tr><td>Health</td><td>Excellent</td></tr>
+    </tbody>
+  </table>
+
+</section>
+
+<!--
+     SKILLS
+ -->
+<section id="skills">
+  <p class="section-label">What I Know</p>
+  <h2 class="section-title">Skills</h2>
+  <div class="title-line"></div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <h3>Languages</h3>
+      <ul>
+        <li>HTML</li><li>CSS</li><li>C#</li><li>SQL</li><li>Dart</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3>Tools</h3>
+      <ul>
+        <li>Microsoft Excel</li>
+        <li>Oracle SQL Developer</li>
+        <li>Oracle APEX</li>
+        <li>Joomla CMS</li>
+        <li>Flutter</li>
+      </ul>
+    </div>
+    <div class="skill-group">
+      <h3>Communication</h3>
+      <p>I have very good communication skills and enjoy working with others to achieve a common goal. I'm an effective communicator who's keen on both teaching and learning.</p>
+    </div>
+  </div>
+
+</section>
+
+<!-- 
+     PROJECTS
+-->
+<section id="projects">
+  <p class="section-label">What I've Built</p>
+  <h2 class="section-title">Projects</h2>
+  <div class="title-line"></div>
+
+  <div class="card featured">
+    <h3>StudentAssistant <span style="font-size:0.75rem; color:var(--green); font-weight:500; margin-left:8px;">Team Project</span></h3>
+    <p>A mobile app built to streamline academic tasks for students  featuring Supabase authentication and task management. Contributed core features as part of a team alongside CyberGhost90.</p>
+    <span class="tech">Flutter · Dart · Supabase</span>
+    <div class="card-links">
+      <a href="https://github.com/Katleho-19/StudentAssistant" target="_blank">My Contributions →</a>
+      <a href="https://github.com/CyberGhost90/StudentAssistant" target="_blank">Original Repo →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Katleho-Webfolio <span style="font-size:0.75rem; color:var(--accent); font-weight:500; margin-left:8px;">You're looking at it</span></h3>
+    <p>Started as a 5-page static site with separate HTML files. Redesigned and refactored into a single-page app with smooth scroll navigation, a dark theme, and a contact form  all without any framework.</p>
+    <span class="tech">HTML · CSS · Vanilla JS</span>
+    <div class="card-links">
+      <a href="https://github.com/Katleho-19/Katleho-Webfolio" target="_blank">View on GitHub →</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Artist Website</h3>
+    <p>A fully functional multi-page website built for a local artist/business. Includes a shop, cart, checkout, contact, and services pages.</p>
+    <span class="tech">HTML · CSS · JavaScript</span>
+    <div class="card-links">
+      <a href="https://github.com/Katleho-19/Artist-Website" target="_blank">View on GitHub →</a>
+    </div>
+  </div>
+</section>
+
+</section>
+
+<!--
+     SERVICES
+-->
+<section id="services">
+  <p class="section-label">What I Offer</p>
+  <h2 class="section-title">Services</h2>
+  <div class="title-line"></div>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>Internet Café Services</h3>
+      <ul>
+        <li>Printing &amp; Scanning</li>
+        <li>Technical Support</li>
+        <li>Form Assistance</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <h3>Web Development</h3>
+      <ul>
+        <li>Custom Website Design</li>
+        <li>CMS Setup &amp; Customization</li>
+        <li>Frontend (HTML/CSS)</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <h3>Content Creation</h3>
+      <ul>
+        <li>Blog Writing &amp; Articles</li>
+        <li>SEO Content Strategy</li>
+        <li>Copywriting</li>
+      </ul>
+    </div>
+  </div>
+
+  <input type="checkbox" id="svc-toggle">
+  <div class="service-grid svc-more">
+    <div class="service-card">
+      <h3>Photography</h3>
+      <ul>
+        <li>Portrait Photography</li>
+        <li>Event Coverage</li>
+        <li>Product Photography</li>
+        <li>Photo Retouching</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <h3>Videography</h3>
+      <ul>
+        <li>Video Filming &amp; Editing</li>
+        <li>YouTube Production</li>
+        <li>Event Highlights</li>
+        <li>Promo Videos</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <h3>Graphic Design</h3>
+      <ul>
+        <li>Logo &amp; Branding</li>
+        <li>UI/UX Design</li>
+        <li>Illustrations</li>
+        <li>Marketing Collateral</li>
+      </ul>
+    </div>
+  </div>
+  <label for="svc-toggle" class="svc-toggle-label">
+    <span class="svc-show">+ Show More Services</span>
+    <span class="svc-hide">− Show Less</span>
+  </label>
+
+  <!-- Pricing: Internet Café -->
+  <h3 class="pricing-title">Internet Café Pricing</h3>
+  <div class="table-wrap">
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Description</th><th>Price</th></tr></thead>
+      <tbody>
+        <tr><td>PC Access</td><td>High-speed internet &amp; PC rental</td><td class="price-tag">R35.80 / hr</td></tr>
+        <tr><td>Printing (B&amp;W)</td><td>Black &amp; white printing per page</td><td class="price-tag">R2.50</td></tr>
+        <tr><td>Printing (Color)</td><td>Color printing per page</td><td class="price-tag">R5.00</td></tr>
+        <tr><td>Scanning</td><td>Scan to email or USB per document</td><td class="price-tag">R8.96</td></tr>
+        <tr><td>Form Assistance</td><td>Help filling online forms</td><td class="price-tag">R17.92 / form</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pricing: Web Dev -->
+  <h3 class="pricing-title">Web Design &amp; Development Pricing</h3>
+  <div class="table-wrap">
+    <table class="price-table">
+      <thead><tr><th>Service</th><th>Description</th><th>Price</th></tr></thead>
+      <tbody>
+        <tr><td>Frontend Development</td><td>Responsive HTML/CSS with animations</td><td class="price-tag">R900 – R2 700</td></tr>
+        <tr><td>CMS / Freelancing</td><td>Basic hosting setup (e.g. Joomla)</td><td class="price-tag">R650 – R1 000</td></tr>
+        <tr><td>Portfolio Website</td><td>Up to 3-page personal site</td><td class="price-tag">R300 – R500</td></tr>
+        <tr><td>Monthly Maintenance</td><td>Updates, backups &amp; minor changes</td><td class="price-tag">R350 – R800 / mo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 
+     CONTACT
+-->
+<section id="contact">
+  <p class="section-label">Let's Talk</p>
+  <h2 class="section-title">Get in Touch</h2>
+  <div class="title-line"></div>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Phone</h3>
+      <p>083 995 4258</p>
+
+      <h3>Email</h3>
+      <a href="mailto:flyjoeddykatleho@gmail.com">flyjoeddykatleho@gmail.com</a>
+
+      <h3>Address</h3>
+      <p>22256 Miletus Street<br>Jerusalem Park, Thabong<br>Welkom, 9463</p>
+
+      <h3>Location</h3>
+      <p>Based in Free State, Welkom.<br>Open to local &amp; remote projects worldwide.</p>
+
+      <h3>Social</h3>
+      <a href="https://github.com/Katleho-19" target="_blank">GitHub</a>
+      <a href="https://web.facebook.com/Joeddy_Be_Humble.php?id=100080760249972" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/katlehofly_19/" target="_blank">Instagram</a>
+    </div>
+
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+      <p class="form-title">Send a Message</p>
+      <input type="hidden" name="access_key" value="3ab5afd3-b42b-465a-aaf1-56f71c61d567">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 Portfolio. All Rights Reserved. Designed by Katleho Makhoali</p>
+</footer>
+
+<script>
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+
+  // Close nav on link click (mobile)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Active nav highlight on scroll using scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  function setActive() {
+    let current = '';
+    sections.forEach(sec => {
+      const top = sec.offsetTop - 80;
+      if (window.scrollY >= top) current = sec.id;
+    });
+    navAnchors.forEach(a => {
+      a.classList.remove('active');
+      if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+    });
+  }
+
+  window.addEventListener('scroll', setActive, { passive: true });
+  setActive();
+</script>
+</body>
 </html>
